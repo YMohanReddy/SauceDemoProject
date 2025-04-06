@@ -21,7 +21,7 @@ public class BaseTest {
 	public BaseTest() {
 			FileReader fr;
 			try {
-				fr = new FileReader(System.getProperty("user.dir")+"/src/test/resources/configFile/Config.properties");
+				fr = new FileReader(System.getProperty("user.dir")+"/src/main/java/resources/Config.properties");
 				properties.load(fr);
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
