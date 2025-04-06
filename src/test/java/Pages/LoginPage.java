@@ -13,6 +13,9 @@ public class LoginPage extends BaseTest {
 	@FindBy(id = "password")
 	WebElement passwordTextBox;
 	
+	@FindBy(xpath = "//div[@id='login_button_container']//h3")
+	WebElement errorMessage_text;
+	
 	public LoginPage() {
 		PageFactory.initElements(driver, this);
 	}
@@ -32,5 +35,10 @@ public class LoginPage extends BaseTest {
 	public void loginWithValidCredentials(String userName, String password) {
 		userIdTextBox.sendKeys(userName);
 		passwordTextBox.sendKeys(password);
+		passwordTextBox.submit();
+	}
+	public String checkErrorMessage() {
+		Utilities.TestUtil.explicitlyWaitForElement(driver, errorMessage_text, 4);
+		return errorMessage_text.getText();
 	}
 }

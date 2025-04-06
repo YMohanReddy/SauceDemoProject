@@ -1,6 +1,5 @@
 package Tests;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -8,6 +7,7 @@ import org.testng.annotations.Test;
 import Base.BaseTest;
 import Pages.HomePage;
 import Pages.LoginPage;
+import Utilities.Constants;
 import junit.framework.Assert;
 
 public class HomePageTest extends BaseTest{
@@ -38,8 +38,13 @@ public class HomePageTest extends BaseTest{
 		Assert.assertTrue(homePage.checkSortContainer());
 		Assert.assertTrue(homePage.checkMenuIcon());
 		
-		String expectedText = "© 2025 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy";
+		
 		Thread.sleep(4000);
-		Assert.assertEquals(homePage.footerText(), expectedText);
+		Assert.assertEquals(homePage.footerText(), Constants.footerText);
+	}
+	
+	@Test
+	public void validateSortContainer() {
+		homePage.sortDropDownList();
 	}
 }
